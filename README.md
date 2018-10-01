@@ -11,7 +11,7 @@ To go into a bit more detail. Our job is to make an app in which you are shown e
 or you are shown the name of a dog breed and you have to click on the corresponding picture. The difficulty will ramp up consistently every 10 correct answers in a row by adding 3 new breeds to the question pool.
 
 ## Why?  
-We have built this app because it is a project assigned to us by our current education called Codaisseurs Web Development Academy. The purpose of this project is to get the students more comfortable with React, Redux and web development in general. Another purpose is to introduce students to working with a team in an agile manner.
+We have built this app because it is a project assigned to us by our current education called the Codaisseur Web Development Academy. The purpose of this project is to get the students more comfortable with React, Redux and web development in general. Another purpose is to introduce students to working with a team in an agile manner.
 
 ## When  
 The project's span will be one workweek, from 01-10-'18 until 05-10-'18. Taking place in the fourth week of the 10 week curicculum of the Codaisseur Web Development Academy.
