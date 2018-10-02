@@ -5,6 +5,6 @@ class SelectFormContainer extends Component{
 
         return(<div></div>)
 
+    }
 }
-
-export default SelectFormContainer
+export default  SelectFormContainer;

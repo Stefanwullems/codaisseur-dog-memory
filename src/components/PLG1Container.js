@@ -10,7 +10,7 @@ class PLG1Container extends Component {
     return (
       <div>
         <ImageContainer></ImageContainer>
-        <SelectFormContainer/>>
+        <SelectFormContainer/>
       </div>
     )
   }
