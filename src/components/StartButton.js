@@ -1,11 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
+import {withStyles} from '@material-ui/core'
 
-export default function(props){
+const styles = {
+    linkBtn:{
+        margin: 'auto'
+    }
+}
+
+function StartButton (props){
     return (
         <div>
-        <Link to='/playground'>
+        <Link to='/playground' className={classes.linkBtn}>
             <Button variant="contained" color="primary">
             PLAY
             </Button>
@@ -13,3 +20,5 @@ export default function(props){
         </div>
     )
 }
+
+export default withStyles(styles)(StartButton)
