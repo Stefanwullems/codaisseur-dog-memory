@@ -7,7 +7,10 @@ class AverageScoreContainer extends React.Component {
     return (
       <div>
         {this.props.averageScore && (
-          <AverageScore avgScore={this.props.averageScore} />
+          <AverageScore
+            avgScore={this.props.averageScore}
+            avgScoreType={this.props.avgScoreType}
+          />
         )}
       </div>
     );

@@ -1,29 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import PLG1Container from "./PLG1Container";
-import { connect } from 'react-redux'
-
-
+import { connect } from "react-redux";
 
 class PLGContainer extends Component {
-
-
-
-
   render() {
-
     return (
       <div>
         <PLG1Container />
       </div>
-    )
+    );
   }
 }
 
-
-const mapStateToProps =(state)=>{
+const mapStateToProps = state => {
   return {
-    dogs:state.addDogsToStore
-  }
-}
+    dogs: state.addDogsToStore
+  };
+};
 
-export default connect (mapStateToProps)(PLGContainer)
+export default connect(mapStateToProps)(PLGContainer);
