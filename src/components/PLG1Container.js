@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ImageContainer from './ImageContainer'
-import SelectFormContainer from './SelectForm'
+import SelectFormContainer from './SelectFormContainer'
 
 export default class PLG1Container extends Component {
   render() {
