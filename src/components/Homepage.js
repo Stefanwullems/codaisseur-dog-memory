@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import StartButton from "./StartButton";
 import Rules from "./Rules";
-import DataPanel from "./DataPanel";
+import AverageScoreContainer from "./AverageScoreContainer";
 import { withStyles } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 
@@ -14,10 +14,10 @@ const styles = theme => ({
   paper: {
     padding: theme.spacing.unit * 2,
     textAlign: "center",
-    color: theme.palette.text.secondary,
     height: 700,
     marginLeft: 20,
-    marginRight: 20
+    marginRight: 20,
+    background: "#FBFBFB"
   },
   gridItem: {
     height: 800
@@ -43,7 +43,7 @@ const Homepage = props => {
         </Grid>
         <Grid item xs className={classes.gridItem}>
           <Paper className={classes.paper}>
-            <DataPanel />
+            <AverageScoreContainer />
           </Paper>
         </Grid>
       </Grid>

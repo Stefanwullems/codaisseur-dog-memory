@@ -16,7 +16,6 @@ const styles = {
     marginLeft: 30
   },
   invitation: {
-    marginTop: 100,
     textAlign: "center"
   }
 };
@@ -30,7 +29,7 @@ function Rules(props) {
         In this game you will be presented with two type of questions where you
         have to choose the correct dog breed.
       </p>
-      <p className={classes.questionTypes}>
+      <div className={classes.questionTypes}>
         The questions can be formatted as either
         <ul>
           <li>
@@ -45,7 +44,7 @@ function Rules(props) {
             image corresponding to the shown dog breed.
           </li>
         </ul>
-      </p>
+      </div>
       <p>
         The difficulty will also ramp up the more accurate you get by adding new
         breeds to the mix
