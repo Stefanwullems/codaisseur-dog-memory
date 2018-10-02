@@ -12,7 +12,7 @@ class App extends Component {
        <HeaderContainer />
         {/* <Route exact path="/" component={HomePageContainer}>
         </Route> */}
-        <Route path="/playground" component={PLGContainer}
+        <Route path="/playground" component={PLGContainer}>
         </Route>
         <FooterContainer></FooterContainer>
 
