@@ -3,6 +3,7 @@ import {Route} from "react-router-dom";
 import PLGContainer from "./components/PLGContainer";
 import HeaderContainer from "./components/HeaderContainer";
 import FooterContainer from "./components/FooterContainer";
+import HomePageContainer from './components/HomePageContainer'
 
 
 class App extends Component {
@@ -10,9 +11,9 @@ class App extends Component {
     return (
       <div className="App">
        <HeaderContainer />
-        {/* <Route exact path="/" component={HomePageContainer}>
-        </Route> */}
-        <Route path="/playground" component={PLGContainer}
+        <Route exact path="/" component={HomePageContainer}>
+        </Route>
+        <Route path="/playground" component={PLGContainer}>
         </Route>
         <FooterContainer></FooterContainer>
 
