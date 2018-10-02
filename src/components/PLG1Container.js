@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addDogs } from '../actions/addDogs'
 
-export default class PLG1Container extends Component {
+class PLG1Container extends Component {
   render() {
     return (
       <div>
@@ -9,3 +11,5 @@ export default class PLG1Container extends Component {
     )
   }
 }
+
+export default connect (null,{addDogs})(PLG1Container)
