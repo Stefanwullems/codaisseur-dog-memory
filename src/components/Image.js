@@ -14,7 +14,7 @@ const styles = {
 const Images = (props) => {
     const {classes} = props
     return <Grid  container alignItems ="center" justify="center">
-             <img className={classes.image} src={"https://images.dog.ceo/breeds/sheepdog-english/n02105641_10397.jpg"}></img>
+             <img className={classes.image} alt="dog" src={"https://images.dog.ceo/breeds/sheepdog-english/n02105641_10397.jpg"}></img>
            </Grid> 
 }
 
