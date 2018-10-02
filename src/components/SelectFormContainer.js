@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-export default class SelectFormContainer extends React.Component{
+class SelectFormContainer extends Component{
     render(){
-        return <div></div>
-    }
+
+        return(<div></div>)
+
 }
 
 export default SelectFormContainer

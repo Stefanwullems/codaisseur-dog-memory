@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
 import showPL from "./showPL";
-import addDogsToStore from './addDogToStore'
 import averageScore from "./average-score";
+import dogData from './dogData'
 
-export default combineReducers({ showPL,addDogsToStore, averageScore });
+export default combineReducers({ showPL,dogData, averageScore });
+
 
