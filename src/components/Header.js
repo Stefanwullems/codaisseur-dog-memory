@@ -19,6 +19,15 @@ const styles = {
   homeButton: {
     marginLeft: -12,
     marginRight: 20
+  },
+  link: {
+    color: "white",
+    textDecoration: "none"
+  },
+  title: {
+    fontSize: "1.7em",
+    fontFamily: "Mali",
+    marginRight: 150
   }
 };
 
@@ -28,7 +37,7 @@ function Header(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Link to="/">
+          <Link to="/" className={classes.link}>
             <IconButton
               className={classes.homeButton}
               color="inherit"
@@ -38,7 +47,7 @@ function Header(props) {
             </IconButton>
           </Link>
           <Typography variant="title" color="inherit" className={classes.grow}>
-            Dog breed memory
+            <h1 className={classes.title}>Doggo.io</h1>
           </Typography>
         </Toolbar>
       </AppBar>
