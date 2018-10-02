@@ -5,3 +5,5 @@ class SelectFormContainer extends React.Component{
         return <div></div>
     }
 }
+
+export default SelectFormContainer
