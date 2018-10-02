@@ -11,15 +11,3 @@ export default class PLGContainer extends Component {
     )
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-  
