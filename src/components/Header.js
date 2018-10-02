@@ -6,7 +6,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import HomeIcon from "@material-ui/icons/Home";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const styles = {
   root: {
@@ -19,6 +19,15 @@ const styles = {
   homeButton: {
     marginLeft: -12,
     marginRight: 20
+  },
+  link: {
+    color: "white",
+    textDecoration: "none"
+  },
+  title: {
+    fontSize: "1.7em",
+    fontFamily: "Mali",
+    marginRight: 150
   }
 };
 
@@ -28,17 +37,17 @@ function Header(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Link to='/'>
-          <IconButton
-            className={classes.homeButton}
-            color="inherit"
-            aria-label="Home"
-          >
-            <HomeIcon />
-          </IconButton>
+          <Link to="/" className={classes.link}>
+            <IconButton
+              className={classes.homeButton}
+              color="inherit"
+              aria-label="Home"
+            >
+              <HomeIcon />
+            </IconButton>
           </Link>
           <Typography variant="title" color="inherit" className={classes.grow}>
-            Dog breed memory
+            <h1 className={classes.title}>Doggo.io</h1>
           </Typography>
         </Toolbar>
       </AppBar>

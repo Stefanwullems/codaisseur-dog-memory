@@ -1,52 +1,55 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import Button from '@material-ui/core/Button'
-import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-
+import React from "react";
+import Grid from "@material-ui/core/Grid";
+import StartButton from "./StartButton";
+import Rules from "./Rules";
+import AverageScoreContainer from "./AverageScoreContainer";
+import { withStyles } from "@material-ui/core";
+import Paper from "@material-ui/core/Paper";
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    marginTop: "4vh"
   },
   paper: {
     padding: theme.spacing.unit * 2,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
+    textAlign: "center",
+    height: 700,
+    marginLeft: 20,
+    marginRight: 20,
+    background: "#FBFBFB"
   },
+  gridItem: {
+    height: 800
+  }
 });
 
-
-const Homepage = () => {
-
+const Homepage = props => {
+  const { classes } = props;
   return (
     <div className="home-page">
-      <Grid className="container game-rules-container">
-        <Grid item xs={6} className="game-rules">
-          <Paper>
-            Welcome to the one and only dog memorizing game. In this game you will be presented with two type of questions where you have to choose the correct dog breed.
-            the questions are as follow:
-            1. A single image of a dog breed where you have to choose the right breed from multiple answers.
-            2. Multiple image of dog breeds where you have to choose the right image corresponding to the asked dog breed.
-            If you are ready, please hit the PLAY button and the game will start. Have fun !
-            </Paper>
+      <Grid
+        container
+        className={classes.root}
+        spacing={16}
+        justify="center"
+        align="center"
+      >
+        <Grid item xs className={classes.gridItem}>
+          <Paper className={classes.paper}>
+            <Rules />
+            <StartButton />
+          </Paper>
         </Grid>
-        <Grid item xs={6} className="button-play">
-          <Link to='/playground'>
-            <Button variant="contained" color="primary">
-              PLAY
-              </Button>
-          </Link>
+        <Grid item xs className={classes.gridItem}>
+          <Paper className={classes.paper}>
+            <AverageScoreContainer />
+          </Paper>
         </Grid>
-        <Grid item xs={6} className="data-layout">
-          Data Layout with percentages
-          </Grid>
       </Grid>
     </div>
-  )
-}
+  );
+};
 
 
-
-export default withStyles(styles)(Homepage)
+export default withStyles(styles)(Homepage);
