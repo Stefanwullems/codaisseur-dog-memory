@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import PLG1Container from "./PLG1Container";
+import { connect } from 'react-redux'
 
 
-export default class PLGContainer extends Component {
+
+class PLGContainer extends Component {
+ 
+
+
   render() {
+
     return (
       <div>
         <PLG1Container />
@@ -11,3 +17,12 @@ export default class PLGContainer extends Component {
     )
   }
 }
+
+
+const mapStateToProps =(state)=>{
+  return {
+    dogs:state.addDogsToStore
+  }
+}
+
+export default connect (mapStateToProps)(PLGContainer)
