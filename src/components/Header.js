@@ -6,6 +6,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import HomeIcon from "@material-ui/icons/Home";
+import {Link} from 'react-router-dom'
 
 const styles = {
   root: {
@@ -27,6 +28,7 @@ function Header(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
+          <Link to='/'>
           <IconButton
             className={classes.homeButton}
             color="inherit"
@@ -34,6 +36,7 @@ function Header(props) {
           >
             <HomeIcon />
           </IconButton>
+          </Link>
           <Typography variant="title" color="inherit" className={classes.grow}>
             Dog breed memory
           </Typography>
