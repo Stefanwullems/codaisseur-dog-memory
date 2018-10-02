@@ -11,6 +11,7 @@ class App extends Component {
     return (
       <div className="App">
        <HeaderContainer />
+
         <Route exact path="/" component={HomePageContainer}>
         </Route>
         <Route path="/playground" component={PLGContainer}>
