@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
 import showPL from "./showPL";
-import addDogsToStore from './addDogToStore'
+import dogData from './dogData'
 
-export default combineReducers({ showPL,addDogsToStore });
+export default combineReducers({ showPL,dogData });

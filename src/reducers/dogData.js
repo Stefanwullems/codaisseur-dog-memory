@@ -7,7 +7,7 @@ const initialState =[
 ]
 
 
-const addDogToStore = (state = initialState, action) => {
+const dogData = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_DOGS":
      return [...state, action.payload]
@@ -16,4 +16,4 @@ const addDogToStore = (state = initialState, action) => {
   }
 }
 
-export default addDogToStore
+export default dogData
