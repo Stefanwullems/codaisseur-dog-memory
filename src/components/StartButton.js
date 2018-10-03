@@ -11,8 +11,8 @@ const styles = {
     textDecoration: "none"
   },
   button: {
-    width: 400,
-    height: 150,
+    width: 380,
+    height: 140,
     color: "white",
     fontWeight: 700,
     fontSize: 50
