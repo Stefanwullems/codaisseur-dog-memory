@@ -18,7 +18,7 @@ const Images = props => {
         className={classes.image}
         alt="dog"
         src={
-          "https://images.dog.ceo/breeds/sheepdog-english/n02105641_10397.jpg"
+          props.dogData[0].imgurl
         }
       />
     </Grid>

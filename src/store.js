@@ -7,4 +7,4 @@ const devTools =
 
 const middleware = { thunk, devTools };
 
-export default createStore(rootReducer, applyMiddleware(...middleware));
+export default createStore(rootReducer, devTools);
