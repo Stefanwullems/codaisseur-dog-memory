@@ -4,15 +4,13 @@ import { connect } from "react-redux";
 import { setCurrentDogs } from "../actions/setCurrentDogs";
 import randomizeArray from "../scripts/randomizeArray";
 import WarningContainer from "./WarningContainer";
-import { shouldShowWarning } from "../actions/warning";
-import request from 'superagent'
-import { setDogs } from '../actions/setDogs';
+import request from "superagent";
+import { setDogs } from "../actions/setDogs";
 import {
   shouldShowWarning,
   shouldntShowWarning,
   dontShowWarning
 } from "../actions/warning";
-
 
 class PLGContainer extends Component {
   componentDidMount() {
@@ -20,10 +18,12 @@ class PLGContainer extends Component {
 
     this.props.shouldShowWarning();
 
-    request.get('https://dog.ceo/api/breeds/list/all')
-    .then(response => {
-            this.props.setDogs(Object.keys(response.body.message))})
-    .catch(console.error)
+    request
+      .get("https://dog.ceo/api/breeds/list/all")
+      .then(response => {
+        this.props.setDogs(Object.keys(response.body.message));
+      })
+      .catch(console.error);
 
     if (!this.props.warning.dontShowAgain) {
       this.props.shouldShowWarning();
@@ -55,5 +55,11 @@ const mapStateToProps = ({ dogData, warning }) => {
 
 export default connect(
   mapStateToProps,
-  { setCurrentDogs, shouldShowWarning, shouldntShowWarning, dontShowWarning, setDogs }
+  {
+    setCurrentDogs,
+    shouldShowWarning,
+    shouldntShowWarning,
+    dontShowWarning,
+    setDogs
+  }
 )(PLGContainer);

@@ -17,7 +17,8 @@ const styles = theme => ({
     height: "70vh",
     marginLeft: "1vw",
     marginRight: "1vw",
-    background: "#FBFBFB"
+    background: "#FBFBFB",
+    width: "46vw"
   },
   gridItem: {
     height: "80vh"
@@ -35,13 +36,13 @@ const Homepage = props => {
         justify="center"
         align="center"
       >
-        <Grid item xs className={classes.gridItem}>
+        <Grid item xs={6} className={classes.gridItem}>
           <Paper className={classes.paper}>
             <Rules />
             <StartButton />
           </Paper>
         </Grid>
-        <Grid item xs className={classes.gridItem}>
+        <Grid item xs={6} className={classes.gridItem}>
           <Paper className={classes.paper}>
             <AverageScoreContainer avgScoreType="OVERALL" />
           </Paper>

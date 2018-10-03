@@ -1,27 +1,26 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core";
+import Paper from "@material-ui/core/Paper";
 
-const styles = {
-  image: {
-    width: 480,
-    height: 300,
-    paddingTop: 100
+const styles = theme => ({
+  paper: {
+    paddingTop: "1vh",
+    paddingBottom: "1vh",
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+    width: "30vw"
+  },
+  img: {
+    width: "28vw"
   }
-};
+});
 
 const Images = props => {
   const { classes } = props;
   return (
-    <Grid container alignItems="center" justify="center">
-      <img
-        className={classes.image}
-        alt="dog"
-        src={ 
-          props.dogData[3].imgurl
-        }
-      />
-    </Grid>
+    <Paper className={classes.paper}>
+      <img alt="dog" className={classes.img} src={props.dogData[3].imgurl} />
+    </Paper>
   );
 };
 
