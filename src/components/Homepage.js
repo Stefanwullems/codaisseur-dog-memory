@@ -43,13 +43,12 @@ const Homepage = props => {
         </Grid>
         <Grid item xs className={classes.gridItem}>
           <Paper className={classes.paper}>
-            <AverageScoreContainer />
+            <AverageScoreContainer avgScoreType="OVERALL" />
           </Paper>
         </Grid>
       </Grid>
     </div>
   );
 };
-
 
 export default withStyles(styles)(Homepage);

@@ -1,9 +1,10 @@
 import { createStore } from "redux";
 import rootReducer from "./reducers";
+// import thunk from "redux-thunk";
 
+const devTools =
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const enhancer = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+// const middleware = { thunk, devTools };
 
-
-
-export default createStore(rootReducer, enhancer);
+export default createStore(rootReducer,devTools);
