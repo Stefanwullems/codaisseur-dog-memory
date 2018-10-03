@@ -2,27 +2,43 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
+import Paper from "@material-ui/core/Paper";
 
 const styles = theme => ({
-  root: {
-    width: "100%",
-    justify: "center",
-    alignItems: "center",
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper
+  paper: {
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+    width: "30vw",
+    marginTop: "7vh"
+  },
+  option: {
+    fontSize: 30,
+    listStyle: "none",
+    color: "black",
+    background: "white",
+    "&:hover": {
+      background: "#3f51b5",
+      color: "white"
+    },
+    transition: "0.2s"
   }
 });
 
 function SelectForm(props) {
   const { dogs, classes } = props;
-  return <div className={classes.root}>{dogs.map(generateDogList)}</div>;
+  return (
+    <React.Fragment>
+      <Paper className={classes.paper}>
+        {dogs.map((dog, i) => generateDogList(dog, i, classes))}
+      </Paper>
+    </React.Fragment>
+  );
 }
 
-const generateDogList = (dog, i) => {
+const generateDogList = (dog, i, classes) => {
   return (
-    <ListItem key={i}>
-      <ListItemText>{dog.breed}</ListItemText>
+    <ListItem key={i} className={classes.option}>
+      {dog.breed}
     </ListItem>
   );
 };
