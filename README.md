@@ -1,4 +1,4 @@
-# Dog breed memorization app  
+# Doggo Memo
 
 ## Who?  
 [Yuga Wicaksono](https://github.com/yugaWicaksono) - Programmer  
