@@ -32,9 +32,6 @@ class PLGContainer extends Component {
         <PLG1Container />
       </div>
     )
-
-    return (<div/>
-      )
   }
 }
 
