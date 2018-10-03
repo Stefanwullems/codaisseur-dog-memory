@@ -14,7 +14,7 @@ const styles = theme => ({
   paper: {
     padding: theme.spacing.unit * 2,
     textAlign: "center",
-    height: 700,
+    height: "70vh",
     marginLeft: 20,
     marginRight: 20,
     background: "#FBFBFB"
@@ -50,6 +50,5 @@ const Homepage = props => {
     </div>
   );
 };
-
 
 export default withStyles(styles)(Homepage);
