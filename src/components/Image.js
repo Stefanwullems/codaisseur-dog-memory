@@ -17,8 +17,8 @@ const Images = props => {
       <img
         className={classes.image}
         alt="dog"
-        src={
-          props.dogData[0].imgurl
+        src={ 
+          props.dogData[3].imgurl
         }
       />
     </Grid>

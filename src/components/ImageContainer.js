@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "./Image";
 import { connect } from "react-redux";
-import { setDogs } from "../actions/setDogs";
 
 class ImageContainer extends React.Component {
   render() {
@@ -21,5 +20,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { setDogs }
 )(ImageContainer);
+
