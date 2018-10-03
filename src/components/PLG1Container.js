@@ -8,10 +8,8 @@ class PLG1Container extends Component {
   render() {
     return (
       <div>
-
         <ImageContainer />
         <SelectFormContainer />
-
       </div>
     );
   }

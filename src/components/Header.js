@@ -22,7 +22,10 @@ const styles = {
   title: {
     fontSize: "1.7em",
     fontFamily: "Mali",
-    marginRight: 150
+    marginRight: "11vw"
+  },
+  header: {
+    height: "7.5vh"
   }
 };
 
@@ -30,7 +33,7 @@ function Header(props) {
   const { classes, shouldShowWarning, warn } = props;
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.header}>
         <Toolbar>
           {shouldShowWarning && (
             <div onClick={warn}>

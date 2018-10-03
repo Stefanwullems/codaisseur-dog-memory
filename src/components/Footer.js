@@ -17,6 +17,9 @@ const styles = {
     color: "white",
     width: "100vw",
     textAlign: "right"
+  },
+  footer: {
+    height: "5vh"
   }
 };
 
@@ -25,7 +28,7 @@ function Footer(props) {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className={classes.footer}>
           <Typography className={classes.footerText}>
             Patrick Buijs, Yuga Wicaksono, Stefan Wullems @ Codaisseur 2018
           </Typography>
