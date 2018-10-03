@@ -26,3 +26,9 @@ export function neverShowWarningAgain() {
     type: "NEVER_SHOW_WARNING"
   };
 }
+
+export function showWarningAgain() {
+  return {
+    type: "SHOW_WARNING_NEXT_TIME"
+  };
+}

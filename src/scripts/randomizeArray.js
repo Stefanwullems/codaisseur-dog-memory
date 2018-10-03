@@ -14,7 +14,7 @@ const randomElement = (array, randomizedArray) => {
   return [
     [
       ...randomizedArray,
-      array.splice([Math.floor(Math.random() * array.length)], 1)
+      array.splice([Math.floor(Math.random() * array.length)], 1)[0]
     ],
     array
   ];
