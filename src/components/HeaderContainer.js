@@ -15,7 +15,7 @@ class HeaderContainer extends React.Component {
 }
 
 const mapStateToProps = ({ warning }) => ({
-  shouldShowWarning: warning.shouldShowWarning
+  shouldShowWarning: warning.shouldShow
 });
 
 export default connect(

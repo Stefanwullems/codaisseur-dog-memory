@@ -4,18 +4,30 @@ import { connect } from "react-redux";
 import { setCurrentDogs } from "../actions/setCurrentDogs";
 import randomizeArray from "../scripts/randomizeArray";
 import WarningContainer from "./WarningContainer";
-import { shouldShowWarning } from "../actions/warning";
+import {
+  shouldShowWarning,
+  shouldntShowWarning,
+  dontShowWarning
+} from "../actions/warning";
 
 class PLGContainer extends Component {
   componentDidMount() {
     this.props.setCurrentDogs(randomizeArray([...this.props.dogs], 3));
-    this.props.shouldShowWarning();
+    if (!this.props.warning.dontShowAgain) {
+      this.props.shouldShowWarning();
+    }
+  }
+
+  componentWillUnmount() {
+    this.props.shouldntShowWarning();
+    this.props.dontShowWarning();
   }
 
   render() {
+    console.log(this.props);
     return (
       <React.Fragment>
-        {this.props.showWarning && <WarningContainer />}
+        {this.props.warning.show && <WarningContainer />}
         <PLG1Container />
       </React.Fragment>
     );
@@ -30,5 +42,5 @@ const mapStateToProps = ({ dogData, warning }) => {
 };
 export default connect(
   mapStateToProps,
-  { setCurrentDogs, shouldShowWarning }
+  { setCurrentDogs, shouldShowWarning, shouldntShowWarning, dontShowWarning }
 )(PLGContainer);
