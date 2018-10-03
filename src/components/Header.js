@@ -4,9 +4,8 @@ import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import HomeIcon from "@material-ui/icons/Home";
 import { Link } from "react-router-dom";
+import HomeButton from "./HomeButton";
 
 const styles = {
   root: {
@@ -16,10 +15,6 @@ const styles = {
     flexGrow: 1,
     textAlign: "center"
   },
-  homeButton: {
-    marginLeft: -12,
-    marginRight: 20
-  },
   link: {
     color: "white",
     textDecoration: "none"
@@ -28,30 +23,25 @@ const styles = {
     fontSize: "1.7em",
     fontFamily: "Mali",
     marginRight: 150
-  },
-  icon: {
-    width: 40,
-    height: 40
   }
 };
 
 function Header(props) {
-  const { classes } = props;
+  const { classes, shouldShowWarning, warn } = props;
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <div onClick={props.warn}>
+          {shouldShowWarning && (
+            <div onClick={warn}>
+              <HomeButton />
+            </div>
+          )}
+          {!shouldShowWarning && (
             <Link to="/" className={classes.link}>
-              <IconButton
-                className={classes.homeButton}
-                color="inherit"
-                aria-label="Home"
-              >
-                <HomeIcon className={classes.icon} />
-              </IconButton>
+              <HomeButton />
             </Link>
-          </div>
+          )}
           <Typography variant="title" color="inherit" className={classes.grow}>
             <div className={classes.title}>Doggo Memo</div>
           </Typography>
