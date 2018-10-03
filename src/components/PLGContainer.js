@@ -6,8 +6,8 @@ import { setCurrentDogs } from '../actions/setCurrentDogs'
 class PLGContainer extends Component {
 
   componentDidMount() {
-    console.log("here is where the function passed", this.props
-    .setCurrentDogs(this.randomize()))
+    this.props
+    .setCurrentDogs(this.randomize())
   }
 
   randomize = () => {
@@ -26,11 +26,15 @@ class PLGContainer extends Component {
 
 
   render() {
+
     return (
       <div>
         <PLG1Container />
       </div>
     )
+
+    return (<div/>
+      )
   }
 }
 
