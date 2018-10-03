@@ -9,9 +9,11 @@ class PLG1Container extends Component {
   render() {
     return (
       <div>
+
         <ImageContainer />
         <SelectFormContainer />
         {/* <AverageScoreContainer avgScoreType="PERSONAL" /> leave this commented out until all functionality is added*/}
+
       </div>
     );
   }
