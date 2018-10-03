@@ -5,7 +5,7 @@ import { setCurrentDogs } from "../actions/setCurrentDogs";
 import randomizeArray from "../scripts/randomizeArray";
 import WarningContainer from "./WarningContainer";
 import { getDogs } from '../actions/getDogs';
-import request from "superagent";
+import { getImages } from '../actions/getImages';
 
 import {
   shouldShowWarning,
@@ -15,17 +15,19 @@ import {
 
 class PLGContainer extends Component {
   componentDidMount() {
+
     this.props.setCurrentDogs(randomizeArray([...this.props.dogs], 3));
-
     this.props.shouldShowWarning();
-
+    this.props.getDogs();
     
-    this.props.getDogs()
-
-
+    
     if (!this.props.warning.dontShowAgain) {
       this.props.shouldShowWarning();
     }
+
+    this.props.getImages(`${this.props.dogs[1].breed}`)
+    
+  
   }
 
   componentWillUnmount() {
@@ -44,11 +46,14 @@ class PLGContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ dogData, warning }) => {
+const mapStateToProps = ({ dogData, SCD , warning }) => {
+
   return {
     dogs: dogData,
+    currentDog:SCD,
     warning
   };
+  
 };
 
 export default connect(
@@ -60,7 +65,8 @@ export default connect(
     shouldShowWarning,
     shouldntShowWarning,
     dontShowWarning,
-    getDogs
+    getDogs,
+    getImages
   }
 
 )(PLGContainer);

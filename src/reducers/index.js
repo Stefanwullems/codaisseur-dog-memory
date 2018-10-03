@@ -5,8 +5,11 @@ import dogData from "./dogData";
 import SCD from "./SCD";
 import warning from "./warning";
 import fetchedDogs from './fetched-dogs'
+import fetchedImages from './fetched-images'
+
 
 export default combineReducers({
+  fetchedImages,
   fetchedDogs,
   showPL,
   dogData,

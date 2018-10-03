@@ -6,7 +6,7 @@ class ImageContainer extends React.Component {
   render() {
     return (
       <div>
-        <Image dogData={this.props.dogData} />
+        <Image image={this.props.image} />
       </div>
     );
   }
@@ -14,7 +14,8 @@ class ImageContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    dogData: state.dogData
+    dogData: state.dogData,
+    image:state.fetchedImages
   };
 };
 

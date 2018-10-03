@@ -20,9 +20,10 @@ const Images = props => {
   const { classes } = props;
   return (
     <Paper className={classes.paper}>
-      <img alt="dog" className={classes.img} src={props.dogData[3].imgurl} />
+      <img alt="dog" className={classes.img} src={props.image} />
     </Paper>
   );
 };
+
 
 export default withStyles(styles)(Images);

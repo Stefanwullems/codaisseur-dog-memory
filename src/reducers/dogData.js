@@ -7,7 +7,7 @@ const initialState = [
   },
   {
     id: 1,
-    breed: "snauzer",
+    breed: "schnauzer",
     imgurl:
       "https://images.dog.ceo/breeds/schnauzer-miniature/n02097047_1392.jpg"
   },

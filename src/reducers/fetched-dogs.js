@@ -1,10 +1,10 @@
-import {GET_DOGS} from '../actions/getDogs'
+import { GET_DOGS } from '../actions/getDogs'
 
 
-const fetchedDogs = (state = [], {type,payload}) => {
+const fetchedDogs = (state = [], { type, payload }) => {
   switch (type) {
     case GET_DOGS:
-      return [...JSON.parse(JSON.stringify(payload))];
+      return payload;
     default:
       return state;
   }
