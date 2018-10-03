@@ -38,17 +38,8 @@ class PLGContainer extends Component {
 
 
   render() {
-    return (
-      <div>
-        <PLG1Container />
-        <div className="randomdogs test">
-          <ul>
-            <h3> random function test</h3>
-            {this.renderRandom()}
-          </ul>
-        </div>
-      </div>
-    )
+    return (<div/>
+      )
   }
 }
 
