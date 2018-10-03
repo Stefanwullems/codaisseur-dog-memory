@@ -25,11 +25,11 @@ const styles = theme => ({
 });
 
 function SelectForm(props) {
-  const { dogs, classes } = props;
+  const { currentDogs, classes } = props;
   return (
     <React.Fragment>
       <Paper className={classes.paper}>
-        {dogs.map((dog, i) => generateDogList(dog, i, classes))}
+        {currentDogs.map((dog, i) => generateDogList(dog, i, classes))}
       </Paper>
     </React.Fragment>
   );
@@ -38,7 +38,7 @@ function SelectForm(props) {
 const generateDogList = (dog, i, classes) => {
   return (
     <ListItem key={i} className={classes.option}>
-      {dog.breed}
+      {dog}
     </ListItem>
   );
 };
