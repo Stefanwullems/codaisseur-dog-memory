@@ -28,6 +28,10 @@ const styles = {
     fontSize: "1.7em",
     fontFamily: "Mali",
     marginRight: 150
+  },
+  icon: {
+    width: 40,
+    height: 40
   }
 };
 
@@ -43,11 +47,11 @@ function Header(props) {
               color="inherit"
               aria-label="Home"
             >
-              <HomeIcon />
+              <HomeIcon className={classes.icon} />
             </IconButton>
           </Link>
           <Typography variant="title" color="inherit" className={classes.grow}>
-            <h1 className={classes.title}>Doggo.io</h1>
+            <div className={classes.title}>Doggo.io</div>
           </Typography>
         </Toolbar>
       </AppBar>
