@@ -15,12 +15,12 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
     textAlign: "center",
     height: "70vh",
-    marginLeft: 20,
-    marginRight: 20,
+    marginLeft: "1vw",
+    marginRight: "1vw",
     background: "#FBFBFB"
   },
   gridItem: {
-    height: 800
+    height: "80vh"
   }
 });
 
