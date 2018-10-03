@@ -5,14 +5,14 @@ import { withStyles } from "@material-ui/core";
 
 const styles = {
   btnDiv: {
-    marginTop: 40
+    marginTop: "8vh"
   },
   link: {
     textDecoration: "none"
   },
   button: {
-    width: 380,
-    height: 140,
+    width: "35vw",
+    height: "12vh",
     color: "white",
     fontWeight: 700,
     fontSize: 50

@@ -12,7 +12,6 @@ const styles = theme => ({
   },
   img: {
     width: "28vw"
-
   }
 });
 

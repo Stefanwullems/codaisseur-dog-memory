@@ -16,10 +16,14 @@ const styles = {
   footerText: {
     color: "white",
     width: "100vw",
-    textAlign: "right"
+    textAlign: "right",
+    paddingTop: "2.6vh"
   },
   footer: {
-    height: "5vh"
+    height: "6.8vh"
+  },
+  textDiv: {
+    paddingRight: "2vw"
   }
 };
 
@@ -27,12 +31,12 @@ function Footer(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar className={classes.footer}>
-          <Typography className={classes.footerText}>
+      <AppBar position="static" className={classes.footer}>
+        <Typography className={classes.footerText}>
+          <div className={classes.textDiv}>
             Patrick Buijs, Yuga Wicaksono, Stefan Wullems @ Codaisseur 2018
-          </Typography>
-        </Toolbar>
+          </div>
+        </Typography>
       </AppBar>
     </div>
   );
