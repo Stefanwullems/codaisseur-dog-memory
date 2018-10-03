@@ -29,10 +29,13 @@ const styles = {
 };
 
 function AverageScore(props) {
-  const { avgScore, classes } = props;
+  const { avgScore, classes, avgScoreType } = props;
   return (
     <div className={classes.wrapper}>
-      <h3 className={classes.header}>The average score</h3>
+      <h3 className={classes.header}>
+        {avgScoreType === "OVERALL" && <span>The</span>}
+        {avgScoreType === "PERSONAL" && <span>Your</span>} average score
+      </h3>
       <div className={classes.chart}>
         {avgScore && <PieChart data={avgScore} colors={colors} />}
       </div>
