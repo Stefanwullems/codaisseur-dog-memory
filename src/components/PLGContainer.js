@@ -18,35 +18,17 @@ class PLGContainer extends Component {
     do {
       randomDogs[randomDogs.length] =
         dogs.splice(Math.floor(Math.random() * dogs.length), 1)[0];
-    } while (randomDogs.length < 4);
+    } while (randomDogs.length < 3);
 
 
     return randomDogs
   };
-
-  renderRandom = () => {
-    const randomDogs = this.randomize()
-    console.log("this is when the function is called inside render",randomDogs)
-    return randomDogs.map((dog) => {
-      return (
-        <li key={dog.id}>ID ={dog.id} breed={dog.breed} url:{dog.imgurl}</li>
-      )
-    })
-  }
-
-
 
 
   render() {
     return (
       <div>
         <PLG1Container />
-        <div className="randomdogs test">
-          <ul>
-            <h3> random function test</h3>
-            {this.renderRandom()}
-          </ul>
-        </div>
       </div>
     )
   }
