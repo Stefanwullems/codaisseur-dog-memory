@@ -41,17 +41,19 @@ function Header(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <Link to="/" className={classes.link}>
-            <IconButton
-              className={classes.homeButton}
-              color="inherit"
-              aria-label="Home"
-            >
-              <HomeIcon className={classes.icon} />
-            </IconButton>
-          </Link>
+          <div onClick={props.warn}>
+            <Link to="/" className={classes.link}>
+              <IconButton
+                className={classes.homeButton}
+                color="inherit"
+                aria-label="Home"
+              >
+                <HomeIcon className={classes.icon} />
+              </IconButton>
+            </Link>
+          </div>
           <Typography variant="title" color="inherit" className={classes.grow}>
-            <div className={classes.title}>Doggo.io</div>
+            <div className={classes.title}>Doggo Memo</div>
           </Typography>
         </Toolbar>
       </AppBar>
