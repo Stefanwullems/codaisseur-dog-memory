@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import PLG1Container from "./PLG1Container";
 import { connect } from 'react-redux'
 
@@ -26,13 +26,10 @@ class PLGContainer extends Component {
       )
     })
 
-  }
-
+  } 
 
   render() {
-
     return (
-
       <div>
         <PLG1Container />
         <div className="randomdogs test">
@@ -41,14 +38,16 @@ class PLGContainer extends Component {
           </ul>
         </div>
       </div>
-    )
+    );
   }
 }
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    dogs: state.dogData
-  }
-}
-export default connect(mapStateToProps)(PLGContainer)
+    dogs: state.addDogsToStore
+  };
+};
+
+export default connect(mapStateToProps)(PLGContainer);
+
