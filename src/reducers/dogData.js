@@ -1,3 +1,4 @@
+
 const dogData = (state = [], { type, payload }) => {
   switch (type) {
     case "SET_DOGS":

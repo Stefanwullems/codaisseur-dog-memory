@@ -3,9 +3,9 @@ import PLG from "./PLG";
 import { connect } from "react-redux";
 import { setCurrentDogs } from "../actions/currentDogs";
 import WarningContainer from "./WarningContainer";
-import { getDogs } from "../actions/dogData";
 import { setLevel } from "../actions/level";
-
+import { getImages } from '../actions/getImages';
+import { getDogs } from "../actions/dogData";
 import {
   shouldShowWarning,
   shouldntShowWarning,
@@ -13,6 +13,9 @@ import {
 } from "../actions/warning";
 
 class PLGContainer extends Component {
+
+
+    
   componentDidMount() {
     this.props.setLevel(this.props.match.params.level);
     this.props.getDogs();
@@ -36,11 +39,13 @@ class PLGContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ dogData, warning }) => {
+const mapStateToProps = ({ dogData, warning, SCD }) => {
+
   return {
     dogData,
     warning
   };
+  
 };
 
 export default connect(
@@ -52,6 +57,8 @@ export default connect(
     shouldntShowWarning,
     dontShowWarning,
     getDogs,
-    setLevel
+    setLevel,
+    getImages
+
   }
 )(PLGContainer);
