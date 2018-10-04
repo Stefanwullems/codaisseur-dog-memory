@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import PLGContainer from "./components/PLGContainer";
+import PLGContainerContainer from "./components/PLGContainerContainer";
 import HeaderContainer from "./components/HeaderContainer";
 import FooterContainer from "./components/FooterContainer";
 import HomepageContainer from "./components/HomepageContainer";
-import { connect } from "react-redux";
 
 class App extends Component {
   render() {
@@ -12,15 +11,15 @@ class App extends Component {
       <div className="App">
         <HeaderContainer />
         <Route exact path="/" component={HomepageContainer} />
-        {this.props.showPL && (
-          <Route path={`/playground/:level`} component={PLGContainer} />
-        )}
+        <Route
+          exact
+          path={`/playground/:level`}
+          component={PLGContainerContainer}
+        />
         <FooterContainer />
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ showPL }) => ({ showPL });
-
-export default connect(mapStateToProps)(App);
+export default App;

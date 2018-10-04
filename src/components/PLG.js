@@ -3,7 +3,6 @@ import { withStyles } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import ImageContainer from "./ImageContainer";
 import SelectFormContainer from "./SelectFormContainer";
-import AverageScoreContainer from "./AverageScoreContainer";
 
 const styles = {
   root: {
@@ -17,15 +16,12 @@ function PLG1(props) {
   return (
     <div className={classes.root}>
       <Grid container spacing={8}>
-        <Grid item xs={4}>
+        <Grid item xs={6}>
           {/* <ImageContainer /> */}
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={6}>
           <ImageContainer />
           <SelectFormContainer />
-        </Grid>
-        <Grid item xs={4}>
-          <AverageScoreContainer avgScoreType="PERSONAL" />
         </Grid>
       </Grid>
     </div>
