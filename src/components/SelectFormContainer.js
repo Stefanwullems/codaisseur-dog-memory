@@ -4,7 +4,12 @@ import { connect } from "react-redux";
 class SelectFormContainer extends Component {
   render() {
     return (
-      <div>{this.props.dogs && <SelectForm dogs={this.props.dogs} />}</div>
+
+      <div>
+        {this.props.currentDogs && (
+          <SelectForm currentDogs={this.props.currentDogs} />
+        )}
+      </div>
     );
   }
 }

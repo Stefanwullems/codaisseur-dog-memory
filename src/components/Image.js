@@ -19,7 +19,7 @@ const Images = props => {
   const { classes } = props;
   return (
     <Paper className={classes.paper}>
-      <img alt="dog" className={classes.img} src={props.dogData[3].imgurl} />
+      <img alt={props.dogData[3]} className={classes.img} />
     </Paper>
   );
 };
