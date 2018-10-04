@@ -5,6 +5,10 @@ import { setCurrentDogs } from "../actions/currentDogs";
 import WarningContainer from "./WarningContainer";
 import { getImages } from '../actions/getImages';
 import { getDogs } from "../actions/dogData";
+import { setPossibleDogs } from '../actions/possibleDogs';
+import { setCurrentDog } from '../actions/currentDog';
+
+
 import {
   shouldShowWarning,
   shouldntShowWarning,
@@ -14,7 +18,20 @@ import {
 class PLGContainer extends Component {
 
 
-    
+  componentDidUpdate() {
+    if (this.props.possibleDogs.length === 0 && this.props.dogData.length !== 0) {
+      this.props.setPossibleDogs([...this.props.dogData])
+
+    }
+    if (this.props.currentDogs.length === 0 && this.props.possibleDogs.length !== 0) {
+      this.props.setCurrentDogs([...this.props.possibleDogs])
+    }
+    if (!this.props.currentDog && this.props.currentDogs.length !== 0) {
+      this.props.setCurrentDog([...this.props.currentDogs])
+    }
+  }
+
+
   componentDidMount() {
 
     this.props.getDogs();
@@ -23,9 +40,7 @@ class PLGContainer extends Component {
     }
 
 
-    
-    
-  
+
   }
 
   componentWillUnmount() {
@@ -43,19 +58,23 @@ class PLGContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ dogData, warning, SCD }) => {
+const mapStateToProps = ({ dogData, warning, possibleDogs, currentDogs }) => {
 
   return {
+    currentDogs,
     dogData,
-    warning
+    warning,
+    possibleDogs
   };
-  
+
 };
 
 export default connect(
   mapStateToProps,
 
   {
+    setCurrentDog,
+    setPossibleDogs,
     setCurrentDogs,
     shouldShowWarning,
     shouldntShowWarning,
