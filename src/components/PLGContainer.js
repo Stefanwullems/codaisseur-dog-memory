@@ -4,11 +4,10 @@ import { connect } from "react-redux";
 import { setCurrentDogs } from "../actions/currentDogs";
 import WarningContainer from "./WarningContainer";
 import { setLevel } from "../actions/level";
-import { getImages } from "../actions/getImages";
 import { getDogs } from "../actions/dogData";
-import { setPossibleDogs } from '../actions/possibleDogs';
-import { setCurrentDog } from '../actions/currentDog';
-
+import { setPossibleDogs } from "../actions/possibleDogs";
+import { getCurrentDog } from "../actions/currentDog";
+import randomizeArray from "../scripts/randomizeArray";
 
 import {
   shouldShowWarning,
@@ -17,34 +16,36 @@ import {
 } from "../actions/warning";
 
 class PLGContainer extends Component {
-
-
-
   componentDidUpdate() {
-    if (this.props.possibleDogs.length === 0 && this.props.dogData.length !== 0) {
-      this.props.setPossibleDogs([...this.props.dogData])
-
+    if (
+      this.props.possibleDogs.length === 0 &&
+      this.props.dogData.length !== 0
+    ) {
+      this.props.setPossibleDogs([...this.props.dogData]);
     }
-    if (this.props.currentDogs.length === 0 && this.props.possibleDogs.length !== 0) {
-      this.props.setCurrentDogs([...this.props.possibleDogs])
+    if (
+      this.props.currentDogs.length === 0 &&
+      this.props.possibleDogs.length !== 0
+    ) {
+      this.props.setCurrentDogs([...this.props.possibleDogs]);
     }
     if (!this.props.currentDog && this.props.currentDogs.length !== 0) {
-      this.props.setCurrentDog([...this.props.currentDogs])
+      this.props.getCurrentDog(randomizeArray([...this.props.currentDogs], 1));
     }
   }
 
   componentDidMount() {
     this.props.setLevel(this.props.level);
-    this.props.getDogs();
-    if (!this.props.warning.dontShowAgain) {
-      this.props.shouldShowWarning();
-    }
-
+    if (this.props.dogData.length === 0) this.props.getDogs();
+    if (!this.props.warning.dontShowAgain) this.props.shouldShowWarning();
   }
 
   componentWillUnmount() {
     this.props.shouldntShowWarning();
     this.props.dontShowWarning();
+    this.props.setPossibleDogs([...this.props.dogData]);
+    this.props.setCurrentDogs([...this.props.possibleDogs]);
+    this.props.getCurrentDog(randomizeArray([...this.props.currentDogs], 1));
   }
 
   render() {
@@ -57,8 +58,6 @@ class PLGContainer extends Component {
   }
 }
 
-
-
 const mapStateToProps = ({ dogData, warning, possibleDogs, currentDogs }) => {
   return {
     currentDogs,
@@ -66,21 +65,19 @@ const mapStateToProps = ({ dogData, warning, possibleDogs, currentDogs }) => {
     warning,
     possibleDogs
   };
-
 };
 
 export default connect(
   mapStateToProps,
 
   {
-    setCurrentDog,
+    getCurrentDog,
     setPossibleDogs,
     setCurrentDogs,
     shouldShowWarning,
     shouldntShowWarning,
     dontShowWarning,
     getDogs,
-    setLevel,
-    getImages
+    setLevel
   }
 )(PLGContainer);

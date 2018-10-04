@@ -11,7 +11,8 @@ const styles = theme => ({
     width: "30vw"
   },
   img: {
-    width: "28vw"
+    width: "28vw",
+    height: "40vh"
   }
 });
 
@@ -20,10 +21,8 @@ const Images = props => {
   return (
     <Paper className={classes.paper}>
       <img alt="dog" className={classes.img} src={props.image} />
-
     </Paper>
   );
 };
-
 
 export default withStyles(styles)(Images);

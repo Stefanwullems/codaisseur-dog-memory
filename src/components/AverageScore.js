@@ -28,8 +28,8 @@ function AverageScore(props) {
     <Grid container spacing={24} className={classes.chartGrid}>
       <Grid item xs={12}>
         <h3 className={classes.header}>
-          {avgScoreType === "OVERALL" && <span>The</span>}
-          {avgScoreType === "PERSONAL" && <span>Your</span>} average score
+          {avgScoreType === "OVERALL" && <span>The average</span>}
+          {avgScoreType === "PERSONAL" && <span>Your</span>} score
         </h3>
       </Grid>
       <Grid item xs>
@@ -37,7 +37,11 @@ function AverageScore(props) {
           <Grid item xs>
             <div className={classes.correct}>
               Correct:
-              <br /> {percentages[0]}%
+              <br />
+              <span>{percentages[0]}%</span>
+              {avgScoreType === "PERSONAL" && (
+                <p>You got {score[0].value} questions right</p>
+              )}
             </div>
           </Grid>
           <Grid item xs>
@@ -46,8 +50,13 @@ function AverageScore(props) {
           <Grid item xs>
             <div className={classes.incorrect}>
               Incorrect:
-              <br /> {percentages[1]}%
+              <br />
+              <span>{percentages[1]}%</span>
+              {avgScoreType === "PERSONAL" && (
+                <p>You got {score[1].value} questions wrong</p>
+              )}
             </div>
+            <div />
           </Grid>
         </Grid>
       </Grid>

@@ -2,6 +2,7 @@ import React from "react";
 import Option from "./Option";
 import { connect } from "react-redux";
 import { startShowingPL, hidePL } from "../actions/showPL";
+import { incrementCorrect, incrementIncorrect } from "../actions/average-score";
 
 class OptionContainer extends React.Component {
   state = {
@@ -16,10 +17,13 @@ class OptionContainer extends React.Component {
 
   checkIfIsCorrect = () => {
     this.setState({ hasClicked: true });
-    if (this.props.dog === this.props.currentDog) {
+    console.log(this.props.dog, this.props.currentDog.currentDog);
+    if (this.props.dog === this.props.currentDog.currentDog) {
       this.setState({ isCorrect: true });
+      this.props.incrementCorrect();
     } else {
       this.setState({ isCorrect: false });
+      this.props.incrementIncorrect();
     }
   };
 
@@ -37,9 +41,9 @@ class OptionContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({ level }) => ({ level });
+const mapStateToProps = ({ level, currentDog }) => ({ level, currentDog });
 
 export default connect(
   mapStateToProps,
-  { startShowingPL, hidePL }
+  { startShowingPL, hidePL, incrementCorrect, incrementIncorrect }
 )(OptionContainer);
