@@ -24,6 +24,7 @@ const mapStateToProps = ({ currentDog, fetchedImages }) => {
   return {
     currentDog,
     fetchedImages
+
   };
 };
 

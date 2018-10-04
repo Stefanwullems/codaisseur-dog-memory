@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import PLGContainer from "./components/PLGContainer";
+import PLGContainerContainer from "./components/PLGContainerContainer";
 import HeaderContainer from "./components/HeaderContainer";
 import FooterContainer from "./components/FooterContainer";
 import HomepageContainer from "./components/HomepageContainer";
@@ -10,9 +10,12 @@ class App extends Component {
     return (
       <div className="App">
         <HeaderContainer />
-
         <Route exact path="/" component={HomepageContainer} />
-        <Route path="/playground" component={PLGContainer} />
+        <Route
+          exact
+          path={`/playground/:level`}
+          component={PLGContainerContainer}
+        />
         <FooterContainer />
       </div>
     );

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import PLG1Container from "./PLG1Container";
+import PLG from "./PLG";
 import { connect } from "react-redux";
 import { setCurrentDogs } from "../actions/currentDogs";
 import WarningContainer from "./WarningContainer";
-import { getImages } from '../actions/getImages';
+import { setLevel } from "../actions/level";
+import { getImages } from "../actions/getImages";
 import { getDogs } from "../actions/dogData";
 import { setPossibleDogs } from '../actions/possibleDogs';
 import { setCurrentDog } from '../actions/currentDog';
@@ -16,6 +17,7 @@ import {
 } from "../actions/warning";
 
 class PLGContainer extends Component {
+
 
 
   componentDidUpdate() {
@@ -31,15 +33,12 @@ class PLGContainer extends Component {
     }
   }
 
-
   componentDidMount() {
-
+    this.props.setLevel(this.props.level);
     this.props.getDogs();
     if (!this.props.warning.dontShowAgain) {
       this.props.shouldShowWarning();
     }
-
-
 
   }
 
@@ -52,13 +51,15 @@ class PLGContainer extends Component {
     return (
       <React.Fragment>
         {this.props.warning.show && <WarningContainer />}
-        <PLG1Container />
+        <PLG />
       </React.Fragment>
     );
   }
 }
 
+
 const mapStateToProps = ({ dogData, warning, possibleDogs, currentDogs }) => {
+
 
   return {
     currentDogs,
@@ -80,6 +81,7 @@ export default connect(
     shouldntShowWarning,
     dontShowWarning,
     getDogs,
+    setLevel,
     getImages
   }
 )(PLGContainer);
