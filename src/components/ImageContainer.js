@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "./Image";
 import { connect } from "react-redux";
-import { getImages } from '../actions/getImages';
+import { getImages } from "../actions/getImages";
 class ImageContainer extends React.Component {
-  componentDidMount(){
-    this.props.getImages(`${this.props.dogData[0]}`)
+  componentDidMount() {
+    this.props.getImages(`${this.props.dogData[0]}`);
   }
-  
+
   render() {
     return (
       <div>
@@ -16,19 +16,14 @@ class ImageContainer extends React.Component {
   }
 }
 
-const mapStateToProps =({dogData,fetchedImages}) => {
+const mapStateToProps = ({ dogData, fetchedImages }) => {
   return {
     dogData,
     fetchedImages
-
   };
 };
 
-
 export default connect(
   mapStateToProps,
-  {getImages}
+  { getImages }
 )(ImageContainer);
-
-
-

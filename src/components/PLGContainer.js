@@ -36,7 +36,7 @@ class PLGContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ dogData, warning, SCD }) => {
+const mapStateToProps = ({ dogData, warning }) => {
   return {
     dogData,
     warning
