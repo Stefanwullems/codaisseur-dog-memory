@@ -10,7 +10,6 @@ class OptionContainer extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <Option
         dog={this.props.dog}
