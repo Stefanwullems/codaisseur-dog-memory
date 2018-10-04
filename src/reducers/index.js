@@ -7,8 +7,10 @@ import warning from "./warning";
 import level from "./level";
 import possibleDogs from "./possible-dogs";
 import currentDog from "./current-dog";
+import possibleDogsLength from "./possible-dogs-length"
 
 export default combineReducers({
+  possibleDogsLength,
   currentDog,
   possibleDogs,
   showPL,
