@@ -1,10 +1,15 @@
 import React from "react";
 import Image from "./Image";
 import { connect } from "react-redux";
-import { getImages } from "../actions/getImages";
+import { getImages } from '../actions/getImages';
+
+
 class ImageContainer extends React.Component {
-  componentDidMount() {
-    this.props.getImages(`${this.props.dogData[0]}`);
+
+  componentDidUpdate() {
+    if(this.props.currentDog && !this.props.fetchedImages)
+    this.props.getImages(this.props.currentDog)
+
   }
 
   render() {
@@ -16,9 +21,10 @@ class ImageContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({ dogData, fetchedImages }) => {
+const mapStateToProps = ({ currentDog, fetchedImages }) => {
+
   return {
-    dogData,
+    currentDog,
     fetchedImages
   };
 };
