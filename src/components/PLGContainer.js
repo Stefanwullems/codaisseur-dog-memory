@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { setCurrentDogs } from "../actions/currentDogs";
 import randomizeArray from "../scripts/randomizeArray";
 import WarningContainer from "./WarningContainer";
+
 import { getDogs } from "../actions/dogData";
 
 import {
@@ -14,8 +15,8 @@ import {
 
 class PLGContainer extends Component {
   componentDidMount() {
-    this.props.getDogs();
 
+    this.props.getDogs();
     if (!this.props.warning.dontShowAgain) {
       this.props.shouldShowWarning();
     }

@@ -18,11 +18,7 @@ const styles = {
   },
   header: {
     fontSize: "1.5em",
-    textAlign: "center",
-    paddingRight: 40
-  },
-  chartGrid: {
-    paddingRight: "2vw"
+    textAlign: "center"
   }
 };
 
@@ -36,17 +32,21 @@ function AverageScore(props) {
           {avgScoreType === "PERSONAL" && <span>Your</span>} average score
         </h3>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs>
         <Grid container>
-          <Grid item xs={3}>
-            <div className={classes.correct}>Correct: {avgScore[0].value}%</div>
+          <Grid item xs>
+            <div className={classes.correct}>
+              Correct:
+              <br /> {avgScore[0].value}%
+            </div>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs>
             {avgScore && <PieChart data={avgScore} colors={colors} />}
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs>
             <div className={classes.incorrect}>
-              Incorrect: {avgScore[1].value}%
+              Incorrect:
+              <br /> {avgScore[1].value}%
             </div>
           </Grid>
         </Grid>

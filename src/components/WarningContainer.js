@@ -1,6 +1,12 @@
 import React from "react";
 import Warning from "./Warning";
-import { neverShowWarningAgain, showWarningAgain } from "../actions/warning";
+import {
+  neverShowWarningAgain,
+  showWarningAgain,
+  dontShowWarning,
+  shouldntShowWarning,
+  shouldShowWarning
+} from "../actions/warning";
 import { connect } from "react-redux";
 
 class WarningContainer extends React.Component {
@@ -9,19 +15,30 @@ class WarningContainer extends React.Component {
     if (e.target.checked === true) {
       console.log("hi");
       this.props.neverShowWarningAgain();
+      this.props.shouldntShowWarning();
     } else {
       this.props.showWarningAgain();
+      this.props.shouldShowWarning();
     }
   };
 
   render() {
     return (
-      <Warning toggleShowWarningNextTime={this.toggleShowWarningNextTime} />
+      <Warning
+        toggleShowWarningNextTime={this.toggleShowWarningNextTime}
+        hideWarning={this.props.dontShowWarning}
+      />
     );
   }
 }
 
 export default connect(
   null,
-  { neverShowWarningAgain, showWarningAgain }
+  {
+    neverShowWarningAgain,
+    showWarningAgain,
+    dontShowWarning,
+    shouldntShowWarning,
+    shouldShowWarning
+  }
 )(WarningContainer);

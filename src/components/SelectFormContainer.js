@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 class SelectFormContainer extends Component {
   render() {
     return (
+
       <div>
         {this.props.currentDogs && (
           <SelectForm currentDogs={this.props.currentDogs} />
@@ -13,9 +14,9 @@ class SelectFormContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ currentDogs }) => {
+const mapStateToProps = state => {
   return {
-    currentDogs
+    dogs: state.SCD
   };
 };
 

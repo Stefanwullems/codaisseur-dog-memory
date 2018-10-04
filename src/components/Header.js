@@ -25,7 +25,7 @@ const styles = {
     marginRight: "11vw"
   },
   header: {
-    height: "7.5vh"
+    height: "6.8vh"
   }
 };
 
