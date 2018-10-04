@@ -11,7 +11,7 @@ class OptionContainer extends React.Component {
 
   redirect = () => {
     this.props.hidePL();
-    setTimeout(this.props.startShowingPL, 3000);
+    setTimeout(this.props.startShowingPL, 500);
   };
 
   checkIfIsCorrect = () => {
