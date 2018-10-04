@@ -23,7 +23,7 @@ const styles = {
 
 function Option(props) {
   const { classes, dog, level, redirect } = props;
-  console.log("hi");
+
   return (
     <LinkDelay
       to={`/playground/${Number(level) + 1}`}
