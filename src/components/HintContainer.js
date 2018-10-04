@@ -5,9 +5,10 @@ import { connect } from "react-redux"
 
 class HintContainer extends React.Component{
 
+
   render() {
-    return (
-      <Hint/>
+      return (
+      <Hint hint={this.props.currentDog.currentDog}/>
     );
   }
 

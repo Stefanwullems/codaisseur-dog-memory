@@ -19,10 +19,9 @@ const styles = {
 
 function Hint(props) {
   const { classes } = props
-
   return (
     <div className={classes.root}>
-    <Tooltip  classes={{ tooltip: classes.toolTip }} title="aff.....">
+    <Tooltip  classes={{ tooltip: classes.toolTip }} title={props.hint}>
       <span>
         <Button disabled className={classes.btndisabled}>Need a hint?</Button>
       </span>
