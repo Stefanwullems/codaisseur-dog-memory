@@ -17,7 +17,6 @@ class OptionContainer extends React.Component {
 
   checkIfIsCorrect = () => {
     this.setState({ hasClicked: true });
-    console.log(this.props.dog, this.props.currentDog.currentDog);
     if (this.props.dog === this.props.currentDog.currentDog) {
       this.setState({ isCorrect: true });
       this.props.incrementCorrect();
