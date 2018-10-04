@@ -4,19 +4,23 @@ import PLGContainer from "./components/PLGContainer";
 import HeaderContainer from "./components/HeaderContainer";
 import FooterContainer from "./components/FooterContainer";
 import HomepageContainer from "./components/HomepageContainer";
+import { connect } from "react-redux";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <HeaderContainer />
-
         <Route exact path="/" component={HomepageContainer} />
-        <Route path="/playground" component={PLGContainer} />
+        {this.props.showPL && (
+          <Route path={`/playground/:level`} component={PLGContainer} />
+        )}
         <FooterContainer />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = ({ showPL }) => ({ showPL });
+
+export default connect(mapStateToProps)(App);

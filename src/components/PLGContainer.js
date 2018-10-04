@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import PLG1Container from "./PLG1Container";
+import PLG from "./PLG";
 import { connect } from "react-redux";
 import { setCurrentDogs } from "../actions/currentDogs";
-import randomizeArray from "../scripts/randomizeArray";
 import WarningContainer from "./WarningContainer";
-
 import { getDogs } from "../actions/dogData";
+import { setLevel } from "../actions/level";
 
 import {
   shouldShowWarning,
@@ -15,7 +14,7 @@ import {
 
 class PLGContainer extends Component {
   componentDidMount() {
-
+    this.props.setLevel(this.props.match.params.level);
     this.props.getDogs();
     if (!this.props.warning.dontShowAgain) {
       this.props.shouldShowWarning();
@@ -31,7 +30,7 @@ class PLGContainer extends Component {
     return (
       <React.Fragment>
         {this.props.warning.show && <WarningContainer />}
-        <PLG1Container />
+        <PLG />
       </React.Fragment>
     );
   }
@@ -52,6 +51,7 @@ export default connect(
     shouldShowWarning,
     shouldntShowWarning,
     dontShowWarning,
-    getDogs
+    getDogs,
+    setLevel
   }
 )(PLGContainer);

@@ -5,16 +5,14 @@ import { connect } from "react-redux";
 class ImageContainer extends React.Component {
   render() {
     return (
-      <div>
-        <Image dogData={this.props.dogData} />
-      </div>
+      <div>{this.props.dogData && <Image dogData={this.props.dogData} />}</div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ dogData }) => {
   return {
-    dogData: state.dogData
+    dogData
   };
 };
 

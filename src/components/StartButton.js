@@ -23,7 +23,7 @@ function StartButton(props) {
   const { classes } = props;
   return (
     <div className={classes.btnDiv}>
-      <Link to="/playground" className={classes.link}>
+      <Link to="/playground/1" className={classes.link}>
         <Button variant="contained" color="primary" className={classes.button}>
           PLAY
         </Button>
