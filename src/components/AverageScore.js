@@ -23,7 +23,7 @@ const styles = {
 };
 
 function AverageScore(props) {
-  const { avgScore, classes, avgScoreType } = props;
+  const { score, classes, avgScoreType, percentages } = props;
   return (
     <Grid container spacing={24} className={classes.chartGrid}>
       <Grid item xs={12}>
@@ -37,16 +37,16 @@ function AverageScore(props) {
           <Grid item xs>
             <div className={classes.correct}>
               Correct:
-              <br /> {avgScore[0].value}%
+              <br /> {percentages[0]}%
             </div>
           </Grid>
           <Grid item xs>
-            {avgScore && <PieChart data={avgScore} colors={colors} />}
+            {score && <PieChart data={score} colors={colors} />}
           </Grid>
           <Grid item xs>
             <div className={classes.incorrect}>
               Incorrect:
-              <br /> {avgScore[1].value}%
+              <br /> {percentages[1]}%
             </div>
           </Grid>
         </Grid>

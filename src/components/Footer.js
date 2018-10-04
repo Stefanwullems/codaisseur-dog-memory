@@ -2,7 +2,6 @@ import React from "react";
 
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
 import { Typography } from "@material-ui/core";
 
 const styles = {
@@ -22,7 +21,7 @@ const styles = {
   footer: {
     height: "6.8vh"
   },
-  textDiv: {
+  textSpan: {
     paddingRight: "2vw"
   }
 };
@@ -33,7 +32,9 @@ function Footer(props) {
     <div className={classes.root}>
       <AppBar position="static" className={classes.footer}>
         <Typography className={classes.footerText}>
-          Patrick Buijs, Yuga Wicaksono, Stefan Wullems @ Codaisseur 2018
+          <span className={classes.textSpan}>
+            Patrick Buijs, Yuga Wicaksono, Stefan Wullems @ Codaisseur 2018
+          </span>
         </Typography>
       </AppBar>
     </div>
