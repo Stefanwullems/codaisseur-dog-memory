@@ -9,7 +9,6 @@ import { getCurrentDog } from "../actions/currentDog";
 import randomizeArray from "../scripts/randomizeArray";
 import { resetStreak } from "../actions/streak";
 import { increaseDifficulty } from "../actions/possibleDogLength";
-
 import {
   shouldShowWarning,
   shouldntShowWarning,

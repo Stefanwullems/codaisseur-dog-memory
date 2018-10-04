@@ -9,6 +9,8 @@ import possibleDogs from "./possible-dogs";
 import currentDog from "./current-dog";
 import possibleDogsLength from "./possible-dogs-length";
 import streak from "./streak";
+import hint from "./hint";
+
 
 export default combineReducers({
   possibleDogsLength,
@@ -20,5 +22,6 @@ export default combineReducers({
   currentDogs,
   warning,
   level,
-  streak
+  streak,
+  hint
 });
