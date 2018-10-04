@@ -29,11 +29,6 @@ class PLGContainer extends Component {
       this.props.setCurrentDogs([...this.props.possibleDogs]);
     }
     if (!this.props.currentDog && this.props.currentDogs.length !== 0) {
-      console.log("!this.props.currentDog", this.props.currentDog);
-      console.log(
-        "this.props.currentDogs.length !== 0",
-        this.props.currentDogs
-      );
       this.props.getCurrentDog(randomizeArray([...this.props.currentDogs], 1));
     }
   }
