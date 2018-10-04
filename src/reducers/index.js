@@ -4,9 +4,9 @@ import averageScore from "./average-score";
 import dogData from "./dogData";
 import currentDogs from "./currentDogs";
 import warning from "./warning";
+import level from "./level";
 import fetchedDogs from './fetched-dogs'
 import fetchedImages from './fetched-images'
-
 
 export default combineReducers({
   fetchedImages,
@@ -15,5 +15,6 @@ export default combineReducers({
   dogData,
   averageScore,
   currentDogs,
-  warning
+  warning,
+  level
 });

@@ -1,8 +1,8 @@
-const showPL = (state = false, action) => {
+const showPL = (state = true, action) => {
   switch (action.type) {
-    case "SHOW_PLAYGROUND":
+    case "SHOW_PL":
       return true;
-    case "HIDE_PLAYGROUND":
+    case "HIDE_PL":
       return false;
     default:
       return state;

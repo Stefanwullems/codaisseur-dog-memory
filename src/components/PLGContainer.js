@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import PLG1Container from "./PLG1Container";
+import PLG from "./PLG";
 import { connect } from "react-redux";
 import { setCurrentDogs } from "../actions/currentDogs";
 import WarningContainer from "./WarningContainer";
+import { setLevel } from "../actions/level";
 import { getImages } from '../actions/getImages';
 import { getDogs } from "../actions/dogData";
 import {
@@ -16,16 +17,11 @@ class PLGContainer extends Component {
 
     
   componentDidMount() {
-
+    this.props.setLevel(this.props.match.params.level);
     this.props.getDogs();
     if (!this.props.warning.dontShowAgain) {
       this.props.shouldShowWarning();
     }
-
-
-    
-    
-  
   }
 
   componentWillUnmount() {
@@ -37,7 +33,7 @@ class PLGContainer extends Component {
     return (
       <React.Fragment>
         {this.props.warning.show && <WarningContainer />}
-        <PLG1Container />
+        <PLG />
       </React.Fragment>
     );
   }
@@ -61,6 +57,8 @@ export default connect(
     shouldntShowWarning,
     dontShowWarning,
     getDogs,
+    setLevel,
     getImages
+
   }
 )(PLGContainer);

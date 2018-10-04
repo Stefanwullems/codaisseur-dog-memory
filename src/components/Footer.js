@@ -33,9 +33,7 @@ function Footer(props) {
     <div className={classes.root}>
       <AppBar position="static" className={classes.footer}>
         <Typography className={classes.footerText}>
-          <div className={classes.textDiv}>
-            Patrick Buijs, Yuga Wicaksono, Stefan Wullems @ Codaisseur 2018
-          </div>
+          Patrick Buijs, Yuga Wicaksono, Stefan Wullems @ Codaisseur 2018
         </Typography>
       </AppBar>
     </div>
