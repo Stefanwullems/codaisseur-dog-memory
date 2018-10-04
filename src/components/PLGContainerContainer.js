@@ -4,8 +4,26 @@ import { connect } from "react-redux";
 import AverageScoreContainer from "./AverageScoreContainer";
 import Grid from "@material-ui/core/Grid";
 import CircularIndeterminate from "./CircularIndeterminate";
+import { resetScore } from "../actions/average-score";
+import {
+  shouldShowWarning,
+  shouldntShowWarning,
+  dontShowWarning
+} from "../actions/warning";
 
 class PLGContainerContainer extends React.Component {
+  componentDidMount() {
+    if (!this.props.warning.dontShowAgain) {
+      this.props.shouldShowWarning();
+    }
+  }
+
+  componentWillUnmount() {
+    this.props.resetScore();
+    this.props.shouldntShowWarning();
+    this.props.dontShowWarning();
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -25,6 +43,14 @@ class PLGContainerContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({ showPL }) => ({ showPL });
+const mapStateToProps = ({ showPL, warning }) => ({ showPL, warning });
 
-export default connect(mapStateToProps)(PLGContainerContainer);
+export default connect(
+  mapStateToProps,
+  {
+    resetScore,
+    shouldntShowWarning,
+    dontShowWarning,
+    shouldShowWarning
+  }
+)(PLGContainerContainer);

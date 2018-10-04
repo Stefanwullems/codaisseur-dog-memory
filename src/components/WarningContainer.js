@@ -13,7 +13,6 @@ class WarningContainer extends React.Component {
   toggleShowWarningNextTime = e => {
     console.log(e.target.checked === true);
     if (e.target.checked === true) {
-      console.log("hi");
       this.props.neverShowWarningAgain();
       this.props.shouldntShowWarning();
     } else {

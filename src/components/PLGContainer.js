@@ -9,54 +9,52 @@ import { getCurrentDog } from "../actions/currentDog";
 import randomizeArray from "../scripts/randomizeArray";
 import { resetStreak } from "../actions/streak";
 import { increaseDifficulty } from "../actions/possibleDogLength";
-
-import {
-  shouldShowWarning,
-  shouldntShowWarning,
-  dontShowWarning
-} from "../actions/warning";
+import { completedFetch, startFetching } from "../actions/fetching";
 
 class PLGContainer extends Component {
   componentDidUpdate() {
-    if (
-      this.props.possibleDogs.length === 0 &&
-      this.props.dogData.length !== 0
-    ) {
-      this.props.setPossibleDogs(
-        [...this.props.dogData],
-        this.props.possibleDogsLength
-      );
-    }
-    if (
-      this.props.currentDogs.length === 0 &&
-      this.props.possibleDogs.length !== 0
-    ) {
-      this.props.setCurrentDogs([...this.props.possibleDogs]);
-    }
-    if (!this.props.currentDog && this.props.currentDogs.length !== 0) {
-      this.props.getCurrentDog(randomizeArray([...this.props.currentDogs], 1));
+    if (this.props.fetching) {
+      if (
+        this.props.possibleDogs.length === 0 &&
+        this.props.dogData.length !== 0
+      ) {
+        this.props.setPossibleDogs(
+          [...this.props.dogData],
+          this.props.possibleDogsLength
+        );
+      }
+      if (
+        this.props.currentDogs.length === 0 &&
+        this.props.possibleDogs.length !== 0
+      ) {
+        this.props.setCurrentDogs([...this.props.possibleDogs]);
+      }
+
+      if (!this.props.currentDog && this.props.currentDogs.length !== 0) {
+        this.props.getCurrentDog(
+          randomizeArray([...this.props.currentDogs], 1)
+        );
+        this.props.completedFetch();
+      }
     }
   }
 
   componentDidMount() {
     this.props.setLevel(this.props.level);
-    if (this.props.dogData.length === 0) this.props.getDogs();
-    if (!this.props.warning.dontShowAgain) this.props.shouldShowWarning();
+    if (this.props.dogData.length === 0) {
+      this.props.getDogs();
+    }
+    this.props.startFetching();
   }
 
   componentWillUnmount() {
+    this.props.setPossibleDogs([], 0);
+    this.props.setCurrentDogs([]);
+
     if (this.props.streak === 3) {
       this.props.resetStreak();
       this.props.increaseDifficulty();
     }
-    this.props.shouldntShowWarning();
-    this.props.dontShowWarning();
-    this.props.setPossibleDogs(
-      [...this.props.dogData],
-      this.props.possibleDogsLength
-    );
-    this.props.setCurrentDogs([...this.props.possibleDogs]);
-    this.props.getCurrentDog(randomizeArray([...this.props.currentDogs], 1));
   }
 
   render() {
@@ -74,7 +72,8 @@ const mapStateToProps = ({
   possibleDogs,
   currentDogs,
   streak,
-  possibleDogsLength
+  possibleDogsLength,
+  fetching
 }) => {
   return {
     currentDogs,
@@ -82,7 +81,8 @@ const mapStateToProps = ({
     warning,
     possibleDogs,
     streak,
-    possibleDogsLength
+    possibleDogsLength,
+    fetching
   };
 };
 
@@ -93,12 +93,11 @@ export default connect(
     getCurrentDog,
     setPossibleDogs,
     setCurrentDogs,
-    shouldShowWarning,
-    shouldntShowWarning,
-    dontShowWarning,
     getDogs,
     setLevel,
     resetStreak,
-    increaseDifficulty
+    increaseDifficulty,
+    completedFetch,
+    startFetching
   }
 )(PLGContainer);
