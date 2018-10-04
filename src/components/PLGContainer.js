@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PLG from "./PLG";
 import { connect } from "react-redux";
 import { setCurrentDogs } from "../actions/currentDogs";
-import WarningContainer from "./WarningContainer";
 import { setLevel } from "../actions/level";
 import { getDogs } from "../actions/dogData";
 import { setPossibleDogs } from "../actions/possibleDogs";
@@ -30,6 +29,11 @@ class PLGContainer extends Component {
       this.props.setCurrentDogs([...this.props.possibleDogs]);
     }
     if (!this.props.currentDog && this.props.currentDogs.length !== 0) {
+      console.log("!this.props.currentDog", this.props.currentDog);
+      console.log(
+        "this.props.currentDogs.length !== 0",
+        this.props.currentDogs
+      );
       this.props.getCurrentDog(randomizeArray([...this.props.currentDogs], 1));
     }
   }
@@ -51,8 +55,7 @@ class PLGContainer extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.warning.show && <WarningContainer />}
-        <PLG />
+        <PLG warning={this.props.warning} />
       </React.Fragment>
     );
   }
