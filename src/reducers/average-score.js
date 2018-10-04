@@ -1,7 +1,7 @@
 //Dummy data
 const initialState = [
-  { key: "correct", value: 72 },
-  { key: "incorrect", value: 28 }
+  { key: "correct", value: 2 },
+  { key: "incorrect", value: 5 }
 ];
 
 export default function(state = initialState, { type, payload }) {

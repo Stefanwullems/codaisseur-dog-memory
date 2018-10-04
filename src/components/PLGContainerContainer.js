@@ -3,6 +3,7 @@ import PLGContainer from "./PLGContainer";
 import { connect } from "react-redux";
 import AverageScoreContainer from "./AverageScoreContainer";
 import Grid from "@material-ui/core/Grid";
+import CircularIndeterminate from "./CircularIndeterminate";
 
 class PLGContainerContainer extends React.Component {
   render() {
@@ -13,6 +14,7 @@ class PLGContainerContainer extends React.Component {
             {this.props.showPL && (
               <PLGContainer level={this.props.match.params.level} />
             )}
+            {!this.props.showPL && <CircularIndeterminate />}
           </Grid>
           <Grid item xs={4}>
             <AverageScoreContainer avgScoreType="PERSONAL" />

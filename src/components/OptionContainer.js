@@ -4,17 +4,34 @@ import { connect } from "react-redux";
 import { startShowingPL, hidePL } from "../actions/showPL";
 
 class OptionContainer extends React.Component {
+  state = {
+    hasClicked: false,
+    isCorrect: false
+  };
+
   redirect = () => {
     this.props.hidePL();
-    setTimeout(this.props.startShowingPL, 0);
+    setTimeout(this.props.startShowingPL, 500);
+  };
+
+  checkIfIsCorrect = () => {
+    this.setState({ hasClicked: true });
+    if (this.props.dog === this.props.currentDog) {
+      this.setState({ isCorrect: true });
+    } else {
+      this.setState({ isCorrect: false });
+    }
   };
 
   render() {
     return (
       <Option
         dog={this.props.dog}
+        checkIfIsCorrect={this.checkIfIsCorrect}
         level={this.props.level}
         redirect={this.redirect}
+        hasClicked={this.state.hasClicked}
+        isCorrect={this.state.isCorrect}
       />
     );
   }

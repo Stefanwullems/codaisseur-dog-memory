@@ -9,6 +9,7 @@ class ImageContainer extends React.Component {
   componentDidUpdate() {
     if(this.props.currentDog && !this.props.fetchedImages)
     this.props.getImages(this.props.currentDog)
+
   }
 
   render() {
@@ -21,18 +22,14 @@ class ImageContainer extends React.Component {
 }
 
 const mapStateToProps = ({ currentDog, fetchedImages }) => {
+
   return {
     currentDog,
     fetchedImages
-
   };
 };
-
 
 export default connect(
   mapStateToProps,
   { getImages }
 )(ImageContainer);
-
-
-
