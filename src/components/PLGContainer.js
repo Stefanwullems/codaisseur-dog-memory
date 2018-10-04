@@ -7,6 +7,8 @@ import { getDogs } from "../actions/dogData";
 import { setPossibleDogs } from "../actions/possibleDogs";
 import { getCurrentDog } from "../actions/currentDog";
 import randomizeArray from "../scripts/randomizeArray";
+import { resetStreak } from "../actions/streak";
+import { increaseDifficulty } from "../actions/possibleDogLength";
 
 import {
   shouldShowWarning,
@@ -20,7 +22,10 @@ class PLGContainer extends Component {
       this.props.possibleDogs.length === 0 &&
       this.props.dogData.length !== 0
     ) {
-      this.props.setPossibleDogs([...this.props.dogData]);
+      this.props.setPossibleDogs(
+        [...this.props.dogData],
+        this.props.possibleDogsLength
+      );
     }
     if (
       this.props.currentDogs.length === 0 &&
@@ -40,9 +45,16 @@ class PLGContainer extends Component {
   }
 
   componentWillUnmount() {
+    if (this.props.streak === 3) {
+      this.props.resetStreak();
+      this.props.increaseDifficulty();
+    }
     this.props.shouldntShowWarning();
     this.props.dontShowWarning();
-    this.props.setPossibleDogs([...this.props.dogData]);
+    this.props.setPossibleDogs(
+      [...this.props.dogData],
+      this.props.possibleDogsLength
+    );
     this.props.setCurrentDogs([...this.props.possibleDogs]);
     this.props.getCurrentDog(randomizeArray([...this.props.currentDogs], 1));
   }
@@ -56,12 +68,21 @@ class PLGContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ dogData, warning, possibleDogs, currentDogs }) => {
+const mapStateToProps = ({
+  dogData,
+  warning,
+  possibleDogs,
+  currentDogs,
+  streak,
+  possibleDogsLength
+}) => {
   return {
     currentDogs,
     dogData,
     warning,
-    possibleDogs
+    possibleDogs,
+    streak,
+    possibleDogsLength
   };
 };
 
@@ -76,6 +97,8 @@ export default connect(
     shouldntShowWarning,
     dontShowWarning,
     getDogs,
-    setLevel
+    setLevel,
+    resetStreak,
+    increaseDifficulty
   }
 )(PLGContainer);

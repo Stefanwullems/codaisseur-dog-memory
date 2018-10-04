@@ -1,7 +1,7 @@
-export default function(state = 3, { type, payload }) {
+export default function(state = 3, { type }) {
   switch (type) {
-    case "POSSIBLE_DOGS_LENGTH":
-      return payload;
+    case "INCREASE_DIFFICULTY":
+      return state + 3;
     default:
       return state;
   }

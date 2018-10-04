@@ -3,6 +3,7 @@ import Option from "./Option";
 import { connect } from "react-redux";
 import { startShowingPL, hidePL } from "../actions/showPL";
 import { incrementCorrect, incrementIncorrect } from "../actions/average-score";
+import { incrementStreak, resetStreak } from "../actions/streak";
 
 class OptionContainer extends React.Component {
   state = {
@@ -20,9 +21,11 @@ class OptionContainer extends React.Component {
     if (this.props.dog === this.props.currentDog.currentDog) {
       this.setState({ isCorrect: true });
       this.props.incrementCorrect();
+      this.props.incrementStreak();
     } else {
       this.setState({ isCorrect: false });
       this.props.incrementIncorrect();
+      this.props.resetStreak();
     }
   };
 
@@ -44,5 +47,12 @@ const mapStateToProps = ({ level, currentDog }) => ({ level, currentDog });
 
 export default connect(
   mapStateToProps,
-  { startShowingPL, hidePL, incrementCorrect, incrementIncorrect }
+  {
+    startShowingPL,
+    hidePL,
+    incrementCorrect,
+    incrementIncorrect,
+    incrementStreak,
+    resetStreak
+  }
 )(OptionContainer);

@@ -16,7 +16,7 @@ function CircularIndeterminate(props) {
   return (
     <Grid container spacing={24}>
       <Grid item xs={6} />
-      <Grid item xs={6} justify="center" alignContent="center">
+      <Grid item xs={6}>
         <Grid container justify="center">
           <Grid item>
             <CircularProgress className={classes.progress} size={50} />
