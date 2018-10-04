@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import PLG1Container from "./PLG1Container";
 import { connect } from "react-redux";
 import { setCurrentDogs } from "../actions/currentDogs";
-import randomizeArray from "../scripts/randomizeArray";
 import WarningContainer from "./WarningContainer";
-
+import { getImages } from '../actions/getImages';
 import { getDogs } from "../actions/dogData";
-
 import {
   shouldShowWarning,
   shouldntShowWarning,
@@ -14,12 +12,20 @@ import {
 } from "../actions/warning";
 
 class PLGContainer extends Component {
+
+
+    
   componentDidMount() {
 
     this.props.getDogs();
     if (!this.props.warning.dontShowAgain) {
       this.props.shouldShowWarning();
     }
+
+
+    
+    
+  
   }
 
   componentWillUnmount() {
@@ -37,11 +43,13 @@ class PLGContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ dogData, warning }) => {
+const mapStateToProps = ({ dogData, warning, SCD }) => {
+
   return {
     dogData,
     warning
   };
+  
 };
 
 export default connect(
@@ -52,6 +60,7 @@ export default connect(
     shouldShowWarning,
     shouldntShowWarning,
     dontShowWarning,
-    getDogs
+    getDogs,
+    getImages
   }
 )(PLGContainer);
