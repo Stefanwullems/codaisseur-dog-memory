@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PLG from "./PLG";
 import { connect } from "react-redux";
 import { setCurrentDogs } from "../actions/currentDogs";
-import WarningContainer from "./WarningContainer";
 import { setLevel } from "../actions/level";
 import { getDogs } from "../actions/dogData";
 import { setPossibleDogs } from "../actions/possibleDogs";
@@ -51,8 +50,7 @@ class PLGContainer extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.warning.show && <WarningContainer />}
-        <PLG />
+        <PLG warning={this.props.warning} />
       </React.Fragment>
     );
   }

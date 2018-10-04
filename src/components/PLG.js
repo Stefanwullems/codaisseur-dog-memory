@@ -3,6 +3,7 @@ import { withStyles } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import ImageContainer from "./ImageContainer";
 import SelectFormContainer from "./SelectFormContainer";
+import WarningContainer from "./WarningContainer";
 
 const styles = {
   root: {
@@ -12,19 +13,22 @@ const styles = {
 };
 
 function PLG1(props) {
-  const { classes } = props;
+  const { classes, warning } = props;
   return (
-    <div className={classes.root}>
-      <Grid container spacing={8}>
-        <Grid item xs={6}>
-          {/* <ImageContainer /> */}
+    <React.Fragment>
+      {warning.show && <WarningContainer />}
+      <div className={classes.root}>
+        <Grid container spacing={8}>
+          <Grid item xs={6}>
+            {/* <ImageContainer /> */}
+          </Grid>
+          <Grid item xs={6}>
+            <ImageContainer />
+            <SelectFormContainer />
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <ImageContainer />
-          <SelectFormContainer />
-        </Grid>
-      </Grid>
-    </div>
+      </div>
+    </React.Fragment>
   );
 }
 

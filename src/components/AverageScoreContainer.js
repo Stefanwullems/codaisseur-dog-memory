@@ -7,11 +7,12 @@ class AverageScoreContainer extends React.Component {
     const score = [...this.props.averageScore];
     if (score[0].value !== 0 || score[1].value !== 0) {
       const correct =
-        Math.round(
-          (100 / (score[0].value + score[1].value)) * score[0].value * 100
-        ) / 100;
+        (100 / (score[0].value + score[1].value)) * score[0].value;
       const incorrect = 100 - correct;
-      return [correct, incorrect];
+      return [
+        Math.round(correct * 100) / 100,
+        Math.round(incorrect * 100) / 100
+      ];
     } else return [0, 0];
   }
 
