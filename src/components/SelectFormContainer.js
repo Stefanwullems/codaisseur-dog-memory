@@ -1,22 +1,23 @@
 import React, { Component } from "react";
-import SelectForm from './SelectForm'
-import { connect } from 'react-redux'
+import SelectForm from "./SelectForm";
+import { connect } from "react-redux";
 class SelectFormContainer extends Component {
-
-
   render() {
+    return (
 
-    return(<div>
-      {this.props.dogs && <SelectForm dogs={this.props.dogs}/>}
-    </div>
-    )
+      <div>
+        {this.props.currentDogs && (
+          <SelectForm currentDogs={this.props.currentDogs} />
+        )}
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    dogs: state.SCD
   };
 };
-
-const mapStateToProps = (state) =>{
-  return {
-    dogs:state.SCD
-  };
-}; 
 
 export default connect(mapStateToProps)(SelectFormContainer);

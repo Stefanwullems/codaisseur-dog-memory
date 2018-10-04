@@ -16,9 +16,9 @@ function PLG1(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <Grid container spacing={24}>
+      <Grid container spacing={8}>
         <Grid item xs={4}>
-          <ImageContainer />
+          {/* <ImageContainer /> */}
         </Grid>
         <Grid item xs={4}>
           <ImageContainer />

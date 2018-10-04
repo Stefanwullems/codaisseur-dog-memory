@@ -3,7 +3,7 @@ export default (array, n) => {
 };
 
 const randomize = (randomizedArray, array, n) => {
-  if (randomizedArray.length <= n) {
+  if (randomizedArray.length < n) {
     return randomize(...randomElement(array, randomizedArray), n);
   } else {
     return randomizedArray;

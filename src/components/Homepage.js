@@ -22,6 +22,10 @@ const styles = theme => ({
   },
   gridItem: {
     height: "80vh"
+  },
+  description: {
+    fontSize: 28,
+    marginTop: "10vh"
   }
 });
 
@@ -45,6 +49,10 @@ const Homepage = props => {
         <Grid item xs={6} className={classes.gridItem}>
           <Paper className={classes.paper}>
             <AverageScoreContainer avgScoreType="OVERALL" />
+            <p className={classes.description}>
+              This is the win/lose ratio of all previous users.
+              <br /> Do your best and try to increase it !!
+            </p>
           </Paper>
         </Grid>
       </Grid>

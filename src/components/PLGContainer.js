@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import PLG1Container from "./PLG1Container";
 import { connect } from "react-redux";
-import { setCurrentDogs } from "../actions/setCurrentDogs";
-import randomizeArray from "../scripts/randomizeArray";
+import { setCurrentDogs } from "../actions/currentDogs";
 import WarningContainer from "./WarningContainer";
-import { getDogs } from '../actions/getDogs';
 import { getImages } from '../actions/getImages';
-
+import { getDogs } from "../actions/dogData";
 import {
   shouldShowWarning,
   shouldntShowWarning,
@@ -15,21 +13,16 @@ import {
 
 class PLGContainer extends Component {
 
+
     
-
-
   componentDidMount() {
 
-    this.props.setCurrentDogs(randomizeArray([...this.props.dogs], 3));
-    this.props.shouldShowWarning();
     this.props.getDogs();
-    
-    
     if (!this.props.warning.dontShowAgain) {
       this.props.shouldShowWarning();
     }
 
-    this.props.getImages(`${this.props.dogs[0].breed}`)
+
     
     
   
@@ -41,7 +34,6 @@ class PLGContainer extends Component {
   }
 
   render() {
-
     return (
       <React.Fragment>
         {this.props.warning.show && <WarningContainer />}
@@ -54,8 +46,7 @@ class PLGContainer extends Component {
 const mapStateToProps = ({ dogData, warning, SCD }) => {
 
   return {
-    dogs: dogData,
-    currentDog:SCD,
+    dogData,
     warning
   };
   
@@ -63,7 +54,6 @@ const mapStateToProps = ({ dogData, warning, SCD }) => {
 
 export default connect(
   mapStateToProps,
-
 
   {
     setCurrentDogs,
@@ -73,5 +63,4 @@ export default connect(
     getDogs,
     getImages
   }
-
 )(PLGContainer);

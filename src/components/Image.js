@@ -12,7 +12,6 @@ const styles = theme => ({
   },
   img: {
     width: "28vw"
-
   }
 });
 
@@ -21,6 +20,7 @@ const Images = props => {
   return (
     <Paper className={classes.paper}>
       <img alt="dog" className={classes.img} src={props.image} />
+
     </Paper>
   );
 };
