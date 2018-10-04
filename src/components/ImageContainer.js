@@ -1,8 +1,10 @@
 import React from "react";
 import Image from "./Image";
 import { connect } from "react-redux";
-
+import { getImages } from '../actions/getImages';
 class ImageContainer extends React.Component {
+
+  
   render() {
     return (
       <div>
@@ -21,5 +23,6 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
+  {getImages}
 )(ImageContainer);
 

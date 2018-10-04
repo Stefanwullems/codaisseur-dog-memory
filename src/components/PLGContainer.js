@@ -14,6 +14,10 @@ import {
 } from "../actions/warning";
 
 class PLGContainer extends Component {
+
+    
+
+
   componentDidMount() {
 
     this.props.setCurrentDogs(randomizeArray([...this.props.dogs], 3));
@@ -25,7 +29,8 @@ class PLGContainer extends Component {
       this.props.shouldShowWarning();
     }
 
-    this.props.getImages(`${this.props.dogs[1].breed}`)
+    this.props.getImages(`${this.props.dogs[0].breed}`)
+    
     
   
   }
@@ -46,7 +51,7 @@ class PLGContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ dogData, SCD , warning }) => {
+const mapStateToProps = ({ dogData, warning, SCD }) => {
 
   return {
     dogs: dogData,
