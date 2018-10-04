@@ -1,7 +1,5 @@
-export function possibleDogsLength(n = 3) {
+export function increaseDifficulty() {
   return {
-      type: "POSSIBLE_DOGS_LENGTH",
-      payload: n
-      }
-
+    type: "INCREASE_DIFFICULTY"
+  };
 }
