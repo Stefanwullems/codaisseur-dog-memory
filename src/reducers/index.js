@@ -11,6 +11,7 @@ import possibleDogsLength from "./possible-dogs-length";
 import streak from "./streak";
 import fetching from "./fetching";
 
+
 export default combineReducers({
   possibleDogsLength,
   currentDog,
@@ -23,4 +24,5 @@ export default combineReducers({
   level,
   streak,
   fetching
+
 });

@@ -11,6 +11,7 @@ import { resetStreak } from "../actions/streak";
 import { increaseDifficulty } from "../actions/possibleDogLength";
 import { completedFetch, startFetching } from "../actions/fetching";
 
+
 class PLGContainer extends Component {
   componentDidUpdate() {
     if (this.props.fetching) {
@@ -37,7 +38,7 @@ class PLGContainer extends Component {
         this.props.completedFetch();
       }
     }
-  }
+}
 
   componentDidMount() {
     this.props.setLevel(this.props.level);
