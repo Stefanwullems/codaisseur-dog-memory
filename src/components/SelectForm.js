@@ -13,12 +13,19 @@ const styles = theme => ({
 });
 
 function SelectForm(props) {
-  const { currentDogs, classes } = props;
+  const { currentDogs, classes, hasSelected, select, currentDog } = props;
+
   return (
     <React.Fragment>
       <Paper className={classes.paper}>
         {currentDogs.map(dog => (
-          <OptionContainer dog={dog} key={dog} />
+          <OptionContainer
+            dog={dog}
+            key={dog}
+            hasSelected={hasSelected}
+            select={select}
+            currentDog={currentDog}
+          />
         ))}
       </Paper>
     </React.Fragment>
