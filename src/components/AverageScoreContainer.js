@@ -12,6 +12,7 @@ class AverageScoreContainer extends React.Component {
   componentDidMount() {
     if (this.props.avgScoreType === "OVERALL") {
       getOverall(this.setData);
+      console.log("hi");
     }
   }
 
@@ -24,6 +25,7 @@ class AverageScoreContainer extends React.Component {
       this.props.avgScoreType === "OVERALL" &&
       this.notInitial(this.state.data)
     ) {
+      console.log("hi2");
       return this.calculate({
         ...JSON.parse(JSON.stringify(this.state.data))
       });
