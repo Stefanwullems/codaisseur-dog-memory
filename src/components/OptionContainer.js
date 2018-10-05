@@ -11,6 +11,16 @@ class OptionContainer extends React.Component {
     isCorrect: false
   };
 
+  componentDidUpdate() {
+    if (
+      this.props.hasSelected &&
+      this.props.dog === this.props.currentDog.currentDog &&
+      !this.state.hasClicked
+    ) {
+      this.setState({ hasClicked: true });
+      this.setState({ isCorrect: true });
+    }
+  }
   redirect = () => {
     this.props.hidePL();
     setTimeout(this.props.startShowingPL, 1000);
@@ -18,12 +28,12 @@ class OptionContainer extends React.Component {
 
   checkIfIsCorrect = () => {
     this.setState({ hasClicked: true });
+    this.props.select();
     if (this.props.dog === this.props.currentDog.currentDog) {
       this.setState({ isCorrect: true });
       this.props.incrementStreak();
       this.props.incrementCorrect();
     } else {
-      this.setState({ isCorrect: false });
       this.props.incrementIncorrect();
       this.props.resetStreak();
     }

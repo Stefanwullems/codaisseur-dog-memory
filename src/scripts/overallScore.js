@@ -1,5 +1,7 @@
 import request from "superagent";
 
+const canFetch = true;
+
 export function getOverall(func) {
   request
     .get("https://api.jsonbin.io/b/5bb722f6a97c597b3c600828/latest")
