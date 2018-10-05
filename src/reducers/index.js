@@ -21,5 +21,5 @@ export default combineReducers({
   currentDogs,
   warning,
   level,
-  streak
+  streak,
 });
