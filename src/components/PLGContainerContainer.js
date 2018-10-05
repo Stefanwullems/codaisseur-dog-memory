@@ -10,6 +10,7 @@ import {
   shouldntShowWarning,
   dontShowWarning
 } from "../actions/warning";
+import { addToOverall } from "../scripts/overallScore";
 
 class PLGContainerContainer extends React.Component {
   componentDidMount() {
@@ -19,6 +20,7 @@ class PLGContainerContainer extends React.Component {
   }
 
   componentWillUnmount() {
+    addToOverall(this.props.averageScore);
     this.props.resetScore();
     this.props.shouldntShowWarning();
     this.props.dontShowWarning();
@@ -43,7 +45,11 @@ class PLGContainerContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({ showPL, warning }) => ({ showPL, warning });
+const mapStateToProps = ({ showPL, warning, averageScore }) => ({
+  showPL,
+  warning,
+  averageScore
+});
 
 export default connect(
   mapStateToProps,
