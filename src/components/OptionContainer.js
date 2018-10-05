@@ -13,15 +13,15 @@ class OptionContainer extends React.Component {
 
   redirect = () => {
     this.props.hidePL();
-    setTimeout(this.props.startShowingPL, 500);
+    setTimeout(this.props.startShowingPL, 1000);
   };
 
   checkIfIsCorrect = () => {
     this.setState({ hasClicked: true });
     if (this.props.dog === this.props.currentDog.currentDog) {
       this.setState({ isCorrect: true });
-      this.props.incrementCorrect();
       this.props.incrementStreak();
+      this.props.incrementCorrect();
     } else {
       this.setState({ isCorrect: false });
       this.props.incrementIncorrect();

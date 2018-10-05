@@ -48,7 +48,7 @@ function Option(props) {
 
   return (
     <LinkDelay
-      to={`/playground/${Number(level) + 1}`}
+      to={`/playground/${level}`}
       delay={2000}
       onDelayStart={checkIfIsCorrect}
       onDelayEnd={redirect}
