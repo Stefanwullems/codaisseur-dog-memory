@@ -2,6 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core";
 import LinkDelay from "./LinkDelay";
 import ListItem from "@material-ui/core/ListItem";
+import Sound from 'react-sound';
 
 const styles = {
   unclicked: {
@@ -46,17 +47,21 @@ function Option(props) {
     isCorrect
   } = props;
 
+
   return (
-    <LinkDelay
-      to={`/playground/${level}`}
-      delay={2000}
-      onDelayStart={checkIfIsCorrect}
-      onDelayEnd={redirect}
-      className={classes.link}
-    >
-      {!hasClicked && <ListItem className={classes.unclicked}>{dog}</ListItem>}
-      {hasClicked && showWinOrLoseButton(isCorrect, classes, dog)}
-    </LinkDelay>
+    <React.Fragment>
+      {isCorrect && <audio ref= {React.createRef()} src="http://www.barbneal.com/wp-content/uploads/bark12.mp3" autoPlay/>}
+      <LinkDelay
+        to={`/playground/${level}`}
+        delay={2000}
+        onDelayStart={checkIfIsCorrect}
+        onDelayEnd={redirect}
+        className={classes.link}
+      >
+        {!hasClicked && <ListItem className={classes.unclicked}>{dog}</ListItem>}
+        {hasClicked && showWinOrLoseButton(isCorrect, classes, dog)}
+      </LinkDelay>
+    </React.Fragment>
   );
 }
 
