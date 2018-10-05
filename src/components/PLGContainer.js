@@ -9,7 +9,6 @@ import { getCurrentDog } from "../actions/currentDog";
 import randomizeArray from "../scripts/randomizeArray";
 import { resetStreak } from "../actions/streak";
 import { increaseDifficulty } from "../actions/possibleDogLength";
-
 import {
   shouldShowWarning,
   shouldntShowWarning,
@@ -36,7 +35,7 @@ class PLGContainer extends Component {
     if (!this.props.currentDog && this.props.currentDogs.length !== 0) {
       this.props.getCurrentDog(randomizeArray([...this.props.currentDogs], 1));
     }
-  }
+}
 
   componentDidMount() {
     this.props.setLevel(this.props.level);
