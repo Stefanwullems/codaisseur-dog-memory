@@ -1,5 +1,11 @@
 # Doggo Memo
 
+## Instructions
+    git clone git@github.com:Stefanwullems/wbcl_doggo-memo.git
+    cd wbcl_doggo-memo
+    yarn install
+    yarn start
+
 ## Who?  
 [Yuga Wicaksono](https://github.com/yugaWicaksono) - Programmer  
 [Patrick Buijs](https://github.com/P4tr1ckk) - Programmer  
